@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video & Motion Designer Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <input type="checkbox" id="modal-trigger1" class="modal-check">
+    <input type="checkbox" id="modal-trigger2" class="modal-check">
+    <input type="checkbox" id="modal-trigger3" class="modal-check">
+
+<!-- ======================================================== -->
+    <!-- 0. 상단 바로가기 내비게이션 바 -->
+    <!-- ======================================================== -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="#intro" class="header-logo">LHJ</a>
+            <nav class="header-nav">
+                <a href="#intro" class="nav-link">INTRO</a>
+                <a href="#portfolio" class="nav-link">WORK</a>
+                <a href="#profile" class="nav-link">PROFILE</a>
+                <a href="#contact" class="nav-link">CONTACT</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="intro" class="full-section">
+        <video class="intro-bg-video" autoplay loop muted playsinline>
+            <source src="intro-bg.mp4" type="video/mp4">
+        </video>
+
+        <div class="video-overlay"></div>
+
+        <div class="container intro-flex">
+            <p class="intro-sub">2D MOTION GRAPHIC & VIDEO DESIGNER</p>
+            <h1 class="intro-title">
+                <span class="glow-text">이학준</span>
+            </h1>
+            <div class="scroll-arrow">EXPLORE WORK ↓</div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="full-section">
+        <div class="container portfolio-tab-system">
+            
+            <input type="radio" name="project-tab" id="tab1" checked>
+            <input type="radio" name="project-tab" id="tab2">
+            <input type="radio" name="project-tab" id="tab3">
+
+            <div class="tab-menu">
+                <label for="tab1" class="tab-btn"><span>01</span>무신사 AI TRUE FIT / 2D 모션그래픽</label>
+                <label for="tab2" class="tab-btn"><span>02</span>Lindt Chocolate / 종합편집</label>
+                <label for="tab3" class="tab-btn"><span>03</span>Work Office / 3D</label>
+            </div>
+
+            <div class="tab-content-wrap">
+                
+                <div class="project-card card1">
+                    <label for="modal-trigger1" class="thumbnail-wrapper">
+                        <img src="모션그래픽/썸네일.png" alt="프로젝트 01 썸네일">
+                        <div class="play-hover-btn">▶ PLAY VIDEO</div>
+                    </label>
+                    <div class="project-desc">
+                        <p class="desc-title">무신사 AI TRUE FIT / 2D 모션그래픽</p>
+                        <p class="desc-text">무신사 앱의 'AI TRUE FIT' 기능 홍보 영상을 2D 모션그래픽 애니메이션으로 제작하였습니다.</p>
+                        
+                        <div class="storyboard-area">
+                            <a href="storyboard1.html" target="_blank" class="storyboard-btn">
+                                <span>VIEW STORYBOARD</span>
+                                <span class="arrow">→</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card card2">
+                    <label for="modal-trigger2" class="thumbnail-wrapper">
+                        <img src="종합편집/썸네일.png" alt="프로젝트 02 썸네일">
+                        <div class="play-hover-btn">▶ PLAY VIDEO</div>
+                    </label>
+                    <div class="project-desc">
+                        <p class="desc-title">Lindt Chocolate 제품 광고 / 종합편집</p>
+                        <p class="desc-text">AI를 활용한 린트초콜릿 시네마틱 광고 영상입니다.</p>
+                        
+                        <div class="storyboard-area">
+                            <a href="storyboard2.html" target="_blank" class="storyboard-btn">
+                                <span>VIEW STORYBOARD</span>
+                                <span class="arrow">→</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card card3">
+                    <label for="modal-trigger3" class="thumbnail-wrapper">
+                        <img src="3D/썸네일.png" alt="프로젝트 03 썸네일">
+                        <div class="play-hover-btn">▶ PLAY VIDEO</div>
+                    </label>
+                    <div class="project-desc">
+                        <p class="desc-title">Work Office / 3D</p>
+                        <p class="desc-text">3D 오브젝트를 활용해 제작한 사무실 영상입니다.</p>
+                        
+                        <div class="storyboard-area">
+                            <a href="storyboard3.html" target="_blank" class="storyboard-btn">
+                                <span>VIEW STORYBOARD</span>
+                                <span class="arrow">→</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- PROFILE & ABOUT (통합된 프로필 섹션) -->
+    <!-- ======================================================== -->
+    <section id="profile" class="full-section">
+        <div class="container profile-grid-layout">
+            
+            <!-- 왼쪽: 핵심 프로필 카드 -->
+            <div class="profile-card">
+                <div class="profile-img-wrap">
+                    <img src="이학준_정장 증명사진.PNG" alt="이학준 프로필 사진">
+                </div>
+                <div class="profile-meta">
+                    <h2 class="profile-name">이학준 <span class="profile-job">Designer</span></h2>
+                    <p class="profile-email">son50sk5565@gmail.com</p>
+                    <div class="skills">
+                        <span>Photoshop</span>
+                        <span>After Effects</span>
+                        <span>Premiere Pro</span>
+                        <span>Illustrator</span>
+                        <span>Blender</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 오른쪽: 상세 이력 및 소개 (ABOUT ME 텍스트 상단 배치) -->
+            <div class="profile-details">
+                <div class="details-header">
+                    <p class="details-sub">ABOUT ME</p>
+                    <h3 class="details-title">안녕하세요, 디자이너 이학준입니다.</h3>
+                    <p class="about-bio">
+                        카멜레온처럼 트렌드의 변화를 빠르게 흡수하고 끊임없이 적응하는 모션 및 영상 디자이너입니다. <br>
+                        새로운 툴과 기술을 두려워하지 않고, 유연한 피드백 수용과 철저한 마감 준수로 완성도 높은 작업을 지향합니다.
+                    </p>
+                </div>
+                
+                <div class="history-grid">
+                    
+                    <!-- 1. 학력 (EDUCATION) -->
+                    <div class="history-col card-cyan">
+                        <h4 class="history-title">EDUCATION</h4>
+                        <ul class="history-list">
+                            <li>
+                                <span class="date">2026.03 - 2026.08</span>
+                                <p class="content font-highlight">국비지원 디지털 영상 제작 과정</p>
+                                <p class="sub-content">광고영상편집(프리미어,에펙,블렌더)&AI모션캡쳐 애니메이션 실무 과정 수료</p>
+                            </li>
+                            <li>
+                                <span class="date">2019 - 2023</span>
+                                <p class="content">연성대학교 졸업</p>
+                                <p class="sub-content">호텔조리전공</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 2. 경험 (EXPERIENCE) -->
+                    <div class="history-col card-magenta">
+                        <h4 class="history-title">EXPERIENCE</h4>
+                        <ul class="history-list">
+                            <li>
+                                <span class="date">2025.12 - 2026.03</span>
+                                <p class="content">비발디파크 스키 아카데미</p>
+                                <p class="sub-content">스키 강습 및 회원관리</p>
+                            </li>
+                            <li>
+                                <span class="date">2025.09 - 2025.11</span>
+                                <p class="content">합정 선비다이닝</p>
+                                <p class="sub-content">매장관리 및 손님응대</p>
+                            </li>
+                            <li>
+                                <span class="date">2025.05 - 2025.08</span>
+                                <p class="content">우성 C&S</p>
+                                <p class="sub-content">삼성전자 자동물류화 공정 안전담당자</p>
+                            </li>
+                            <li>
+                                <span class="date">2024.12 - 2025.03</span>
+                                <p class="content">비발디파크 스키 아카데미</p>
+                                <p class="sub-content">스키 강습 및 회원관리</p>
+                            </li>
+                            <li>
+                                <span class="date">2024.09 - 2024.11</span>
+                                <p class="content">합정 선비다이닝</p>
+                                <p class="sub-content">매장관리 및 손님응대</p>
+                            </li>
+                            <li>
+                                <span class="date">2024.03 - 2024.08</span>
+                                <p class="content">홍대 코너펍</p>
+                                <p class="sub-content">매장관리 및 손님응대</p>
+                            </li>
+                            <li>
+                                <span class="date">2023.12 - 2024.03</span>
+                                <p class="content">하이원 리조트</p>
+                                <p class="sub-content">스키 강습</p>
+                            </li>
+                            <li>
+                                <span class="date">2023.09 - 2023.11</span>
+                                <p class="content">홍대 코너펍</p>
+                                <p class="sub-content">매장관리 및 손님응대</p>
+                            </li>
+                            <li>
+                                <span class="date">2023.03 - 2023.09</span>
+                                <p class="content">합정 88노가리 포차</p>
+                                <p class="sub-content">주방, 매장관리 및 손님응대</p>
+                            </li>
+                            <li>
+                                <span class="date">2022.12 - 2023.03</span>
+                                <p class="content">곤지암 리조트</p>
+                                <p class="sub-content">스키 강습</p>
+                            </li>
+                            <li>
+                                <span class="date">2021.12 - 2022.03</span>
+                                <p class="content">오크밸리 리조트</p>
+                                <p class="sub-content">스키 강습</p>
+                            </li>
+                            <li>
+                                <span class="date">2019.03 - 2019.12</span>
+                                <p class="content">연성대학교 호텔조리과 학과 사무실</p>
+                                <p class="sub-content">식재료 및 비품 관리</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 3. 작업 가치관 (MY ATTITUDE) -->
+                    <div class="history-col card-yellow">
+                        <h4 class="history-title">MY ATTITUDE</h4>
+                        <ul class="history-list">
+                            <li>
+                                <span class="date">LEARNING</span>
+                                <p class="content">스펀지 같은 흡수력</p>
+                                <p class="sub-content">모르는 것을 두려워하지 않고 질문하며, 새로운 트렌드나 툴 기능이 나오면 빠르게 학습하여 제 것으로 만듭니다.</p>
+                            </li>
+                            <li>
+                                <span class="date">COMMUNICATION</span>
+                                <p class="content">유연한 피드백 수용</p>
+                                <p class="sub-content">작업물에 대한 피드백을 성장의 발판으로 삼고 유연하게 수용하여, 더 나은 결과물을 만드는 것을 즐깁니다.</p>
+                            </li>
+                            <li>
+                                <span class="date">PROMPTNESS</span>
+                                <p class="content">약속과 마감 기한 준수</p>
+                                <p class="sub-content">어떤 작은 과제나 작업이든 마감 시간을 정확하게 지키는 것을 디자이너로서 가장 중요한 기본 신뢰라 생각합니다.</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>    
+
+    <!-- ======================================================== -->
+    <!-- 6. 콘택트 섹션 (정돈된 레이아웃 반영) -->
+    <!-- ======================================================== -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-box">
+                <h2 class="contact-title">CONTACT</h2>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <span class="item-label">EMAIL</span>
+                        <a href="mailto:son50sk5565@gmail.com" class="item-value highlight-link">son50sk5565@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="item-label">PHONE</span>
+                        <span class="item-value">010-6437-7564</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="item-label">SNS</span>
+                        <a href="https://www.instagram.com/iyagg.__.jun/" target="_blank" class="item-value highlight-link">INSTAGRAM</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="video-modal-overlay video-modal1">
+        <label for="modal-trigger1" class="modal-bg-close"></label>
+        <div class="modal-window-1280">
+            <label for="modal-trigger1" class="modal-close-btn">×</label>
+            <div class="modal-video-aspect">
+                <video src="모션그래픽/모션그래픽_이학준.mp4" controls autoplay muted style="width:100%; height:100%; object-fit:cover;"></video>
+            </div>
+        </div>
+    </div>
+
+    <div class="video-modal-overlay video-modal2">
+        <label for="modal-trigger2" class="modal-bg-close"></label>
+        <div class="modal-window-1280">
+            <label for="modal-trigger2" class="modal-close-btn">×</label>
+            <div class="modal-video-aspect">
+                <video src="종합편집/이학준_종합편집.mp4" controls autoplay muted style="width:100%; height:100%; object-fit:cover;"></video>
+            </div>
+        </div>
+    </div>
+
+    <div class="video-modal-overlay video-modal3">
+        <label for="modal-trigger3" class="modal-bg-close"></label>
+        <div class="modal-window-1280">
+            <label for="modal-trigger3" class="modal-close-btn">×</label>
+            <div class="modal-video-aspect">
+                <video src="3D/workoffice.mp4" controls autoplay muted style="width:100%; height:100%; object-fit:cover;"></video>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

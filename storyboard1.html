@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storyboard - ONH SUMMIT Opening</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- 구글 폰트 -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        .sb-page-body {
+            background-color: #0d0e10;
+            color: #ffffff;
+            padding: 60px 0 120px 0;
+        }
+        .sb-header {
+            margin-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 25px;
+        }
+        .sb-back-btn {
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            color: #64748b;
+            text-decoration: none;
+            margin-bottom: 25px;
+            transition: color 0.3s;
+            cursor: pointer;
+            letter-spacing: 0.05em;
+        }
+        .sb-back-btn:hover { color: #38bdf8; }
+        
+        .sb-project-meta {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            color: #38bdf8;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            margin-bottom: 10px;
+        }
+        .sb-main-title {
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        /* 🎬 1280px 메인 컨테이너 */
+        .sb-content-center {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 상단 코어 콘셉트 박스 */
+        .sb-concept-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 35px;
+            margin-bottom: 50px;
+        }
+        .sb-concept-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+        .sb-concept-text {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #94a3b8;
+            font-weight: 300;
+        }
+
+        /* 스토리보드 리스트 수직 정렬 */
+        .sb-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 45px;
+        }
+
+        /* 👑 메인 표지 카드 스타일 */
+        .sb-cover-card {
+            width: 100%;
+            background: linear-gradient(135deg, #131722 0%, #0a0c10 100%);
+            border: 2px solid rgba(56, 189, 248, 0.4);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(56, 189, 248, 0.15); 
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .sb-cover-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #38bdf8;
+            color: #000000;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 6px 14px;
+            border-radius: 30px;
+            letter-spacing: 0.1em;
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+        }
+
+        .sb-cover-text-area {
+            padding: 35px 40px;
+            background: rgba(19, 23, 34, 0.8);
+        }
+        .sb-cover-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 800;
+            color: #38bdf8;
+            letter-spacing: 0.1em;
+            margin-bottom: 10px;
+        }
+        .sb-cover-desc {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #ffffff;
+            font-weight: 400;
+        }
+
+        /* 🎞️ 일반 스토리보드 카드 스타일 */
+        .sb-frame-card {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            transition: transform 0.4s ease, border-color 0.4s ease;
+        }
+        .sb-frame-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        /* 16:9 비율 유지 박스 */
+        .sb-image-ratio-box {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; 
+            background-color: #000000;
+        }
+        .sb-image-ratio-box img {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+        }
+
+        /* 일반 컷 하단 설명창 */
+        .sb-text-info-area {
+            padding: 25px 30px;
+            background: rgba(13, 14, 16, 0.5);
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+        }
+        .sb-scene-num {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: #94a3b8;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+        .sb-scene-desc {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #cbd5e1;
+            font-weight: 300;
+        }
+
+        @media (max-width: 768px) {
+            .sb-main-title { font-size: 26px; }
+            .sb-cover-text-area { padding: 25px; }
+            .sb-text-info-area { padding: 20px; }
+        }
+    </style>
+</head>
+<body class="sb-page-body">
+
+    <div class="container">
+        <header class="sb-header">
+            <a href="index.html" class="sb-back-btn">← BACK TO PORTFOLIO</a>
+            <p class="sb-project-meta">01 / BRAND FILM PROJECT</p>
+            <h1 class="sb-main-title">Storyboard & Production Note</h1>
+        </header>
+    </div>
+
+    <main class="sb-content-center">
+        
+        <!-- Core Concept 개요 박스 -->
+        <div class="sb-concept-box">
+            <h2 class="sb-concept-title">Core Concept</h2>
+            <p class="sb-concept-text">
+                브랜드가 추구하는 방향성을 '빛의 유기적인 움직임'과 '과감한 타이포그래피'로 시각화하는 것을 목표로 잡았습니다.<br>
+                초반의 정적인 빌드업에서 후반부의 폭발적인 모션 릴리즈로 이어지는 텐션감을 스토리보드 단계에서부터 철저히 계산하여 구성했습니다.
+            </p>
+        </div>
+
+        <!-- 🎬 스토리보드 리스트 시작 -->
+        <div class="sb-stack">
+            
+            <!-- 👑 1번째 장: 메인 표지 카드 (storyboard1img 폴더 연동) -->
+            <div class="sb-cover-card">
+                <div class="sb-cover-badge">MAIN COVER</div>
+                <div class="sb-image-ratio-box">
+                    <img src="storyboard1img/표지.png" alt="Storyboard Main Cover">
+                </div>
+                <div class="sb-cover-text-area">
+                    <p class="sb-cover-title">VISUAL ARTWORK COVER</p>
+                    <p class="sb-cover-desc">본 비디오 커머스 연출안의 무드와 그래픽 아이덴티티를 대표하는 메인 스틸컷 표지 레이아웃입니다.</p>
+                </div>
+            </div>
+
+            <!-- 2번째 장 -->
+            <div class="sb-frame-card">
+                <div class="sb-image-ratio-box">
+                    <img src="storyboard1img/스토리보드1.png" alt="Storyboard Frame 2">
+                </div>
+                <div class="sb-text-info-area">
+                    <p class="sb-scene-num">SCENE #01 - #02</p>
+                    <p class="sb-scene-desc">도입부: 스마트폰 메시지 팝업 연출 및 완벽한 핏의 옷을 입고 나서는 인직의 서사적 상상 씬 설계.</p>
+                </div>
+            </div>
+
+            <!-- 3번째 장 -->
+            <div class="sb-frame-card">
+                <div class="sb-image-ratio-box">
+                    <img src="storyboard1img/스토리보드2.png" alt="Storyboard Frame 3">
+                </div>
+                <div class="sb-text-info-area">
+                    <p class="sb-scene-num">SCENE #03 - #04</p>
+                    <p class="sb-scene-desc">문제 제기 및 발견: 기존 온라인 쇼핑의 한계 극복을 위해 친구와 메신저로 AI TRUE FIT 기능을 공유받는 트랜지션 구간.</p>
+                </div>
+            </div>
+
+            <!-- 4번째 장 -->
+            <div class="sb-frame-card">
+                <div class="sb-image-ratio-box">
+                    <img src="storyboard1img/스토리보드3.png" alt="Storyboard Frame 4">
+                </div>
+                <div class="sb-text-info-area">
+                    <p class="sb-scene-num">SCENE #05 - #06</p>
+                    <p class="sb-scene-desc">인터페이스 탐색: 무신사 앱에 직접 접속하여 체형 분석 및 내 옷과 비교하기 가이드 그래픽 구현 프레임.</p>
+                </div>
+            </div>
+
+            <!-- 5번째 장 -->
+            <div class="sb-frame-card">
+                <div class="sb-image-ratio-box">
+                    <img src="storyboard1img/스토리보드4.png" alt="Storyboard Frame 5">
+                </div>
+                <div class="sb-text-info-area">
+                    <p class="sb-scene-num">SCENE #07 - #08</p>
+                    <p class="sb-scene-desc">핵심 기술 시각화: 수치 및 데이터 동기화 로딩 화면과 정밀한 베스트 핏 매칭 알고리즘 이펙트 구성 안.</p>
+                </div>
+            </div>
+
+            <!-- 6번째 장 -->
+            <div class="sb-frame-card">
+                <div class="sb-image-ratio-box">
+                    <img src="storyboard1img/스토리보드5.png" alt="Storyboard Frame 6">
+                </div>
+                <div class="sb-text-info-area">
+                    <p class="sb-scene-num">SCENE #09 - #10</p>
+                    <p class="sb-scene-desc">구매 및 만족: 장바구니 결제 프로세스 연동 화면 및 가상 착용 후 거울 앞 만족감을 극대화한 실사 매칭 가이드.</p>
+                </div>
+            </div>
+
+            <!-- 7번째 장 -->
+            <div class="sb-frame-card">
+                <div class="sb-image-ratio-box">
+                    <img src="storyboard1img/스토리보드6.png" alt="Storyboard Frame 7">
+                </div>
+                <div class="sb-text-info-area">
+                    <p class="sb-scene-num">SCENE #11 - #12</p>
+                    <p class="sb-scene-desc">피날레 엔딩: 데이트 장소에서의 호감도 상승 및 무신사 로고 배치와 함께 자연스럽게 Fade out 되는 마지막 아웃트로.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+</html>

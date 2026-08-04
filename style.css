@@ -1,0 +1,888 @@
+/* ======================================================== */
+/* 1. 기본 스타일 초기화 */
+/* ======================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    background-color: #0d0e10; 
+    color: #ffffff;
+    font-family: 'Noto Sans KR', sans-serif;
+    overflow-x: hidden;
+}
+/* ======================================================== */
+/* 0. 상단 바로가기 내비게이션 스타일 */
+/* ======================================================== */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    background: rgba(13, 14, 16, 0.5); /* 스크롤할 때 뒤쪽이 은은하게 비침 */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.header-container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 로고 스타일 */
+.header-logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+}
+
+.header-logo:hover {
+    color: #38bdf8;
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+}
+
+/* 메뉴 링크 스타일 */
+.header-nav {
+    display: flex;
+    gap: 32px;
+}
+
+.nav-link {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #94a3b8; /* 평소에는 톤다운된 슬레이트 그레이 */
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+    padding: 6px 0;
+    border-bottom: 2px solid transparent;
+}
+
+/* 호버 시 디자이너 컬러(시안 블루)로 영롱하게 반응 */
+.nav-link:hover {
+    color: #38bdf8;
+    border-bottom-color: #38bdf8;
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+}
+
+/* 모바일 해상도 대응 */
+@media (max-width: 768px) {
+    .header-container {
+        padding: 0 20px;
+    }
+    .header-nav {
+        gap: 16px;
+    }
+    .nav-link {
+        font-size: 11px;
+    }
+}
+/* 바로가기 링크 이동 시 네비게이션 두께만큼 넉넉하게 띄우고 멈추게 함 */
+#intro, #portfolio, #profile-overview, #contact, section {
+    scroll-margin-top: 110px; /* 네비게이션 높이(64px) + 상단 여백(20px) + 디자인적 여유 공간 */
+}
+/* ======================================================== */
+/* 2. 레이아웃 (기본 공통 섹션 규격 설정) */
+/* ======================================================== */
+.full-section {
+    width: 100%;
+    max-width: 1280px;
+    height: 100vh; 
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+/* ABOUT, CONTACT 등 일반 섹션을 위한 1280px 그리드 */
+.container {
+    width: 100%;
+    max-width: 1280px;
+    padding: 0 40px;
+    margin: 0 auto;
+}
+
+/* 포트폴리오 섹션 전용: 1280px 제한을 풀고 좌우 여백을 없애 1920px 전체화면으로 확장 */
+#portfolio .container.portfolio-tab-system {
+    max-width: 1920px;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* ======================================================== */
+/* 3. 인트로 섹션 (좌우 벽면 끝까지 완전히 채우는 100% 전체화면) */
+/* ======================================================== */
+#intro {
+    position: relative;
+    width: 100vw;       
+    max-width: 100% !important; 
+    height: 100vh;      
+    overflow: hidden;
+}
+
+.intro-bg-video {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 100%; height: 100%;
+    min-width: 100%; min-height: 100%;
+    object-fit: cover;  
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.intro-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 11;
+    max-width: 100% !important; 
+    width: 100% !important;
+    padding-left: 4%; 
+    align-items: flex-start; 
+}
+
+.intro-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.2em;
+    margin-bottom: 25px;
+}
+.intro-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 90px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+}
+.intro-title span { display: block; }
+
+.glow-text {
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.6);
+    animation: neonGlow 6s ease-in-out infinite; 
+}
+@keyframes neonGlow {
+    0%, 100% {
+        color: transparent;
+        -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+        text-shadow: 0 0 20px rgba(255, 182, 193, 0.7); 
+    }
+    33% {
+        color: #ffffff;
+        -webkit-text-stroke: 1px #ffffff;
+        text-shadow: 0 0 20px rgba(152, 251, 152, 0.7);
+    }
+    66% {
+        color: #ffffff;
+        -webkit-text-stroke: 1px #ffffff;
+        text-shadow: 0 0 20px rgba(216, 191, 216, 0.7);
+    }
+}
+.scroll-arrow {
+    margin-top: 60px;
+    font-size: 13px;
+    color: #ffffff;
+    letter-spacing: 0.15em;
+    animation: bounce 2s infinite;
+}
+
+/* ======================================================== */
+/* 4. 메인 콘텐츠 - 1920px 와이드 탭 인터페이스 레이아웃 */
+/* ======================================================== */
+input[name="project-tab"] { display: none; }
+
+.tab-menu {
+    display: flex;
+    gap: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 15px;
+    width: 100%;
+    max-width: 1920px;
+    padding-left: 60px; 
+    padding-right: 60px;
+}
+.tab-btn {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+.tab-btn span { font-size: 12px; margin-right: 6px; color: #64748b; }
+.tab-btn:hover { color: #cbd5e1; }
+
+#tab1:checked ~ .tab-menu .tab-btn[for="tab1"],
+#tab2:checked ~ .tab-menu .tab-btn[for="tab2"],
+#tab3:checked ~ .tab-menu .tab-btn[for="tab3"] {
+    color: #38bdf8;
+    background-color: rgba(56, 189, 248, 0.05);
+}
+
+.tab-content-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 1920px;
+    height: 580px; 
+}
+
+.project-card {
+    position: absolute;
+    top: 0; left: 0; 
+    width: 100%;
+    max-width: 1920px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px; 
+    background-color: rgba(255, 255, 255, 0.02);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-left: none; 
+    border-right: none;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 0; 
+    padding: 60px 60px; 
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(15px);
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+#tab1:checked ~ .tab-content-wrap .card1,
+#tab2:checked ~ .tab-content-wrap .card2,
+#tab3:checked ~ .tab-content-wrap .card3 {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.thumbnail-wrapper {
+    position: relative;
+    flex: 1 1 58%; 
+    max-width: 1080px; 
+    width: 100%;
+    padding-bottom: 32.6%; 
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.thumbnail-wrapper img {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.thumbnail-wrapper:hover img {
+    transform: scale(1.05);
+}
+.play-hover-btn {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(13, 14, 16, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+.thumbnail-wrapper:hover .play-hover-btn {
+    opacity: 1;
+    background: rgba(56, 189, 248, 0.15);
+    text-shadow: 0 0 15px rgba(56, 189, 248, 0.8);
+}
+
+.project-desc { 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    flex: 1 1 38%; 
+    max-width: 620px;
+    width: 100%;
+}
+.desc-title { font-size: 22px; font-weight: 700; color: #38bdf8; margin-bottom: 18px; }
+.desc-text { font-size: 15px; line-height: 1.8; color: #cbd5e1; font-weight: 300; }
+
+/* ======================================================== */
+/* 5. PROFILE OVERVIEW (카멜레온 컨셉 최적화 버전) */
+/* ======================================================== */
+#profile-overview {
+    height: auto; 
+    padding: 140px 0; 
+    background-color: #090a0c; /* 카멜레온 오로라가 잘 보이도록 배경을 살짝 더 깊은 어둠으로 설정 */
+    position: relative;
+    overflow: hidden;
+}
+
+/* 🌈 카멜레온 오로라 백그라운드 광원 (느리게 일렁이며 색상이 변함) */
+.chameleon-glow-bg {
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 700px;
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.12), rgba(236, 72, 153, 0.12), rgba(251, 191, 36, 0.12));
+    filter: blur(140px);
+    border-radius: 50%;
+    z-index: 1;
+    animation: chameleonOrbit 15s infinite alternate ease-in-out;
+    pointer-events: none;
+}
+
+@keyframes chameleonOrbit {
+    0% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+    50% { transform: translate(-45%, -55%) scale(1.15) rotate(180deg); }
+    100% { transform: translate(-55%, -45%) scale(0.9) rotate(360deg); }
+}
+
+.profile-grid-layout {
+    position: relative;
+    z-index: 2; /* 오로라 위에 콘텐츠가 오도록 */
+    display: grid;
+    grid-template-columns: 360px 1fr; /* 왼쪽 카드를 살짝 줄여 오른쪽 이력 가로폭을 크게 확보 */
+    gap: 60px; 
+    align-items: start;
+}
+
+/* 왼쪽 프로필 카드 (글래스모피즘 적용) */
+.profile-card {
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 35px; 
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s ease;
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 25px 60px rgba(56, 189, 248, 0.05);
+}
+
+.profile-img-wrap {
+    width: 100%;
+    aspect-ratio: 1 / 1; 
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.profile-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transition: transform 0.5s ease;
+}
+
+.profile-card:hover .profile-img-wrap img {
+    transform: scale(1.03);
+}
+
+.profile-name {
+    font-size: 28px; 
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 12px;
+}
+
+.profile-job {
+    font-size: 16px; 
+    font-weight: 400;
+    color: #38bdf8;
+    margin-left: 8px;
+    letter-spacing: 0.05em;
+    background: linear-gradient(135deg, #38bdf8, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.profile-email {
+    font-size: 14px; 
+    color: #475569;
+    margin-bottom: 25px;
+}
+
+/* 프로필 카드 내부의 스킬 태그 정렬 개선 */
+.profile-card .skills {
+    display: flex;
+    flex-wrap: wrap;       /* 화면 폭에 맞게 자연스럽게 줄바꿈 */
+    gap: 8px 10px;         /* 태그 사이의 위아래/좌우 간격을 일정하게 좁힘 */
+    justify-content: center; /* 전체 요소를 완벽한 가로 중앙 정렬 */
+    max-width: 320px;      /* 좌우로 퍼지는 영역 한계선을 잡아 깔끔하게 모아줌 */
+    margin: 0 auto;        /* 카드 내부에서 영역 자체를 가운데 정렬 */
+}
+
+.profile-card .skills span {
+    font-size: 13px; 
+    padding: 6px 14px; 
+    background: rgba(56, 189, 248, 0.05);
+    border: 1px solid rgba(56, 189, 248, 0.15);
+    color: #38bdf8;
+    border-radius: 30px;
+    white-space: nowrap;   /* 글자가 안에서 강제로 줄바꿈되지 않게 방지 */
+    transition: all 0.3s ease;
+}
+
+/* 마우스 올렸을 때 은은하게 빛나는 호버 효과 추가 */
+.profile-card .skills span:hover {
+    background: rgba(56, 189, 248, 0.12);
+    border-color: rgba(56, 189, 248, 0.4);
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+}
+
+.details-header {
+    margin-bottom: 45px; 
+}
+
+.details-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px; 
+    color: #38bdf8;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    margin-bottom: 8px;
+}
+
+.details-title {
+    font-size: 36px; 
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+}
+
+/* 3열 구조 비율 조절 (가운데 EXPERIENCE가 더 유연하게 확보되도록 1fr 2fr 1fr 유지) */
+.history-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr; 
+    gap: 40px; 
+}
+
+/* 개별 카드 칼럼 글래스모피즘 스타일 적용 */
+.history-col {
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    padding: 30px 18px; /* 양옆 안쪽 여백을 축소하여 글자가 들어갈 가로 폭을 확보 */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.history-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px; 
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 25px;
+    letter-spacing: 0.05em;
+    border-left: 3px solid rgba(255, 255, 255, 0.1); 
+    padding-left: 10px;
+    transition: all 0.3s ease;
+}
+
+.history-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 28px; 
+}
+
+.history-list li {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.history-list .date {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px; 
+    font-weight: 700;
+    color: #475569;
+    letter-spacing: 0.02em;
+    transition: color 0.3s ease;
+}
+
+.history-list .content {
+    font-size: 14px; /* 폰트 크기를 카드 비율에 맞게 미세 조정 */
+    line-height: 1.4;
+    color: #cbd5e1; 
+    font-weight: 500;
+    word-break: keep-all; /* 단어가 임의의 자리에서 한 글자씩 쪼개지는 깨짐 완벽 방지 */
+    overflow-wrap: break-word; /* 레이아웃 너비를 넘지 않도록 안전 조치 */
+}
+
+.history-list .content.font-highlight {
+    color: #38bdf8; 
+}
+
+.history-list .sub-content {
+    font-size: 11.5px; /* 미세 조정 */
+    line-height: 1.5; 
+    color: #64748b; 
+    margin-top: 4px;
+    transition: color 0.3s ease;
+    word-break: keep-all; /* 한글 단어 쪼개짐 방지 */
+}
+
+/* EXPERIENCE 칼럼 2열 배치 스타일 유지 */
+.history-col:nth-child(2) .history-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 24px 20px; 
+}
+
+/* 마우스 오버 시 일어나는 네온 변색 인터랙션 */
+.history-col:hover {
+    transform: translateY(-6px);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+/* 1. EDUCATION: 시안(Cyan) 네온 컬러 반응 */
+.card-cyan:hover {
+    border-color: rgba(56, 189, 248, 0.25);
+    box-shadow: 0 15px 35px rgba(56, 189, 248, 0.06);
+}
+.card-cyan:hover .history-title {
+    border-color: #38bdf8;
+    color: #38bdf8;
+}
+.card-cyan:hover .date { color: #38bdf8; }
+.card-cyan:hover .sub-content { color: #94a3b8; }
+
+/* 2. EXPERIENCE: 마젠타(Magenta) 네온 컬러 반응 */
+.card-magenta:hover {
+    border-color: rgba(236, 72, 153, 0.25);
+    box-shadow: 0 15px 35px rgba(236, 72, 153, 0.06);
+}
+.card-magenta:hover .history-title {
+    border-color: #ec4899;
+    color: #ec4899;
+}
+.card-magenta:hover .date { color: #ec4899; }
+.card-magenta:hover .sub-content { color: #94a3b8; }
+
+/* 3. MY ATTITUDE: 옐로우(Yellow) 네온 컬러 반응 */
+.card-yellow:hover {
+    border-color: rgba(251, 191, 36, 0.25);
+    box-shadow: 0 15px 35px rgba(251, 191, 36, 0.06);
+}
+.card-yellow:hover .history-title {
+    border-color: #fbbf24;
+    color: #fbbf24;
+}
+.card-yellow:hover .date { color: #fbbf24; }
+.card-yellow:hover .sub-content { color: #94a3b8; }
+
+/* 📱 반응형 분기점 (모바일/태블릿 대응) */
+@media (max-width: 1200px) {
+    .profile-grid-layout {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+    .profile-card {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    .history-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    .history-col:nth-child(2) .history-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ======================================================== */
+/* 6. ABOUT ME 섹션 */
+/* ======================================================== */
+.about-flex { display: flex; align-items: center; gap: 60px; }
+.profile-img { width: 280px; height: 280px; flex-shrink: 0; border-radius: 24px; overflow: hidden; }
+.profile-img img { width: 100%; height: 100%; object-fit: cover; }
+.section-title { font-family: 'Montserrat', sans-serif; font-size: 36px; margin-bottom: 20px; }
+.about-bio { font-size: 16px; line-height: 1.8; color: #cbd5e1; font-weight: 300; margin-bottom: 30px; }
+.skills span {
+    display: inline-block;
+    padding: 6px 14px;
+    background-color: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 30px;
+    font-size: 13px;
+    margin-right: 8px;
+    color: #94a3b8;
+}
+
+/* ======================================================== */
+/* 6. 콘택트 섹션 (극강의 심플 & 모던 다크 글래스) */
+/* ======================================================== */
+#contact {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 100px 40px 140px 40px; 
+    position: relative;
+    z-index: 2;
+}
+
+.contact-box {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.02); /* 배경을 어둡고 투명하게 정돈 */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 80px 40px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* 마우스 올렸을 때만 은은한 오로라 테두리 반응 */
+.contact-box:hover {
+    border-color: rgba(56, 189, 248, 0.2);
+    box-shadow: 0 25px 60px rgba(56, 189, 248, 0.06);
+}
+
+.contact-title { 
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 42px; 
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    margin-bottom: 40px; 
+    line-height: 1.1; 
+}
+
+/* 수평 정렬로 세련된 균형 유지 */
+.contact-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px; /* 아이템 간격 일정하게 분배 */
+    flex-wrap: wrap; /* 화면 작아질 때 자동 개행 */
+}
+
+/* 개별 항목 (세로 배치) */
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 소제목 (EMAIL, PHONE, SNS) */
+.item-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    color: #64748b; /* 차분한 슬레이트 그레이 */
+    letter-spacing: 0.15em;
+}
+
+/* 본문 연락처 정보 */
+.item-value {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #e2e8f0; /* 선명하고 차분한 은회색 */
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid transparent;
+}
+
+/* 링크 요소에만 포인트 컬러 부여 */
+.highlight-link {
+    color: #38bdf8; /* 신뢰감을 주는 시안 블루 */
+}
+
+/* 마우스 올렸을 때 정갈한 네온 글로우 피드백 */
+.highlight-link:hover {
+    color: #ffffff;
+    border-color: #38bdf8;
+    text-shadow: 0 0 15px rgba(56, 189, 248, 0.8);
+}
+
+/* 모바일 화면 최적화 */
+@media (max-width: 768px) {
+    .contact-details {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
+
+/* ======================================================== */
+/* 8. 시네마틱 비디오 모달 CSS 스타일링 */
+/* ======================================================== */
+.modal-check { display: none; } 
+
+.video-modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(10, 11, 13, 0.9); 
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    z-index: 9999; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+.modal-bg-close {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    cursor: default;
+}
+.modal-window-1280 {
+    position: relative;
+    width: 90%;
+    max-width: 1280px; 
+    background: #000000;
+    border-radius: 20px;
+    overflow: visible;
+    box-shadow: 0 30px 70px rgba(0,0,0,0.8), 0 0 1px rgba(255,255,255,0.2);
+    transform: scale(0.95);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 10000;
+}
+.modal-video-aspect {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; 
+    border-radius: 20px;
+    overflow: hidden;
+}
+.modal-video-aspect iframe {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+}
+.modal-close-btn {
+    position: absolute;
+    top: -50px; right: 0;
+    font-size: 38px;
+    color: rgba(255,255,255,0.6);
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+.modal-close-btn:hover { color: #38bdf8; }
+
+#modal-trigger1:checked ~ .video-modal1,
+#modal-trigger2:checked ~ .video-modal2,
+#modal-trigger3:checked ~ .video-modal3 {
+    opacity: 1;
+    pointer-events: auto;
+}
+#modal-trigger1:checked ~ .video-modal1 .modal-window-1280,
+#modal-trigger2:checked ~ .video-modal2 .modal-window-1280,
+#modal-trigger3:checked ~ .video-modal3 .modal-window-1280 {
+    transform: scale(1);
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+.modal-video-aspect iframe,
+.modal-video-aspect video {
+    position: absolute;   
+    top: 0;
+    left: 0;
+    width: 100%;          
+    height: 100%;         
+    border: none;
+    border-radius: 20px;  
+    object-fit: contain;  
+}
+
+/* ======================================================== */
+/* 9. 스토리보드 링크 버튼 스타일 (수정/보완됨) */
+/* ======================================================== */
+.storyboard-area {
+    margin-top: 30px; 
+    position: relative; /* z-index 활성화를 위해 추가 */
+    z-index: 20; /* 버튼이 다른 배경이나 투명 영역에 가려져 클릭이 안 되는 현상 완벽 방지 */
+}
+
+.storyboard-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%; 
+    max-width: 240px; 
+    padding: 14px 20px;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #94a3b8;
+    text-decoration: none; 
+    letter-spacing: 0.05em;
+    cursor: pointer; /* 💡 핵심 추가: 마우스 오버 시 확실한 버튼(손가락) 커서 표시 */
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.storyboard-btn .arrow {
+    transition: transform 0.3s ease;
+    display: inline-block; /* 화살표 애니메이션이 부드럽게 먹히도록 속성 추가 */
+}
+
+.storyboard-btn:hover {
+    background-color: rgba(56, 189, 248, 0.06); 
+    border-color: #38bdf8; 
+    color: #38bdf8; 
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.2); 
+    transform: translateY(-2px); /* 호버 시 버튼이 살짝 위로 떠오르는 피드백 추가 */
+}
+
+.storyboard-btn:hover .arrow {
+    transform: translateX(5px);
+}

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storyboard 3 - Work Office / 3D</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- 구글 폰트 -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        .sb-page-body {
+            background-color: #0d0e10;
+            color: #ffffff;
+            padding: 60px 0 120px 0;
+        }
+        .sb-header {
+            margin-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 25px;
+        }
+        .sb-back-btn {
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            color: #64748b;
+            text-decoration: none;
+            margin-bottom: 25px;
+            transition: color 0.3s;
+            cursor: pointer;
+            letter-spacing: 0.05em;
+        }
+        .sb-back-btn:hover { color: #38bdf8; }
+        
+        .sb-project-meta {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            color: #38bdf8;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            margin-bottom: 10px;
+        }
+        .sb-main-title {
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        /* 🎬 1280px 메인 컨테이너 */
+        .sb-content-center {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 상단 코어 콘셉트 박스 */
+        .sb-concept-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 35px;
+            margin-bottom: 50px;
+        }
+        .sb-concept-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+        .sb-concept-text {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #94a3b8;
+            font-weight: 300;
+        }
+
+        /* 스토리보드 리스트 수직 정렬 */
+        .sb-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 45px;
+        }
+
+        /* 👑 메인 표지 카드 스타일 */
+        .sb-cover-card {
+            width: 100%;
+            background: linear-gradient(135deg, #131722 0%, #0a0c10 100%);
+            border: 2px solid rgba(56, 189, 248, 0.4);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(56, 189, 248, 0.15); 
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .sb-cover-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #38bdf8;
+            color: #000000;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 6px 14px;
+            border-radius: 30px;
+            letter-spacing: 0.1em;
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+        }
+
+        .sb-cover-text-area {
+            padding: 35px 40px;
+            background: rgba(19, 23, 34, 0.8);
+        }
+        .sb-cover-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 800;
+            color: #38bdf8;
+            letter-spacing: 0.1em;
+            margin-bottom: 10px;
+        }
+        .sb-cover-desc {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #ffffff;
+            font-weight: 400;
+        }
+
+        /* 🎞️ 일반 스토리보드 카드 스타일 */
+        .sb-frame-card {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            transition: transform 0.4s ease, border-color 0.4s ease;
+        }
+        .sb-frame-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        /* 16:9 비율 유지 박스 */
+        .sb-image-ratio-box {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; 
+            background-color: #000000;
+        }
+        .sb-image-ratio-box img {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+        }
+
+        /* 일반 컷 하단 설명창 */
+        .sb-text-info-area {
+            padding: 25px 30px;
+            background: rgba(13, 14, 16, 0.5);
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+        }
+        .sb-scene-num {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: #94a3b8;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+        .sb-scene-desc {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #cbd5e1;
+            font-weight: 300;
+        }
+
+        @media (max-width: 768px) {
+            .sb-main-title { font-size: 26px; }
+            .sb-cover-text-area { padding: 25px; }
+            .sb-text-info-area { padding: 20px; }
+        }
+    </style>
+</head>
+<body class="sb-page-body">
+
+    <div class="container">
+        <header class="sb-header">
+            <a href="index.html" class="sb-back-btn">← BACK TO PORTFOLIO</a>
+            <p class="sb-project-meta">03 / 3D BLENDER WORK</p>
+            <h1 class="sb-main-title">Storyboard & Production Note</h1>
+        </header>
+    </div>
+
+    <main class="sb-content-center">
+        
+        <!-- Core Concept 개요 박스 -->
+        <div class="sb-concept-box">
+            <h2 class="sb-concept-title">Core Concept</h2>
+            <p class="sb-concept-text">
+                Blender를 활용하여 현대적인 3D 오피스와 오브젝트 모델링을 구축하고 시각화한 프로젝트입니다.<br>
+                반원형 회의용 테이블, 테이블 위의 오브젝트, 커튼 등의 질감을 현실과 유사하게 표현하여 현실적이며 입체적인 공간감을 연출했습니다.
+            </p>
+        </div>
+
+        <!-- 🎬 스토리보드 리스트 시작 -->
+        <div class="sb-stack">
+            
+            <!-- 👑 1번째 장: 메인 표지 카드 (storyboard3img 폴더 연동) -->
+            <div class="sb-cover-card">
+                <div class="sb-cover-badge">MAIN COVER</div>
+                <div class="sb-image-ratio-box">
+                    <img src="3D/썸네일.png" alt="Work Office 3D Main Cover">
+                </div>
+                <div class="sb-cover-text-area">
+                    <p class="sb-cover-title">3D SPACE ARTWORK COVER</p>
+                    <p class="sb-cover-desc">3D 오피스 스튜디오 공간 전체 레이아웃과 조명 연출이 포함된 메인 아트워크 스틸컷 표지입니다.</p>
+                </div>
+            </div>
+
+            <!-- 2번째 장 -->
+            <div class="sb-frame-card">
+                <div class="sb-image-ratio-box">
+                    <video src="3D/루피&다리풍경.mp4" 
+                    autoplay loop muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"></video> alt="Storyboard Frame 2">
+                </div>
+                <div class="sb-text-info-area">
+                    <p class="sb-scene-num">Object</p>
+                    <p class="sb-scene-desc">오피스 스크린: 3D 회의실 공간에 배치한 3D오브젝트를 랜더링해 합성한 중앙 대형 스크린입니다.</p>
+                </div>
+            </div>
+
+            <!-- 3번째 장 -->
+            <div class="sb-frame-card">
+                <div class="sb-image-ratio-box">
+                    <img src="3D/object.png" alt="Storyboard Frame 3">
+                </div>
+                <div class="sb-text-info-area">
+                    <p class="sb-scene-num">Object</p>
+                    <p class="sb-scene-desc">소품 및 재질 연출: 회의용 테이블 책, 머그컵, 유리잔, 화분 오브젝트로 소품에 맞는 텍스트를 입혔습니다.</p>
+                </div>
+            </div>
+
+            <!-- 4번째 장 -->
+            <div class="sb-frame-card">
+                <div class="sb-image-ratio-box">
+                    <img src="3D/Light.png" alt="Storyboard Frame 4">
+                </div>
+                <div class="sb-text-info-area">
+                    <p class="sb-scene-num">Light Before</p>
+                    <p class="sb-scene-desc">Light 작업을 통해 사무실 특유의 조명감을 연출하였습니다.</p>
+                </div>
+            </div>
+
+            <!-- 5번째 장 -->
+            <div class="sb-frame-card">
+                <div class="sb-image-ratio-box">
+                    <img src="3D/Light2.png" alt="Storyboard Frame 5">
+                </div>
+                <div class="sb-text-info-area">
+                    <p class="sb-scene-num">Light After</p>
+                    <p class="sb-scene-desc">Light 작업을 통해 사무실 특유의 조명감을 연출하였습니다.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+</html>
