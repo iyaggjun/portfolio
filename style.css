@@ -886,22 +886,3 @@ input[name="project-tab"] { display: none; }
 .storyboard-btn:hover .arrow {
     transform: translateX(5px);
 }
-/* 상단 메뉴 클릭 시 스크롤 위치 보정 */
-section {
-  scroll-margin-top: 60px;
-}
-
-/* PROFILE 섹션 90% 뷰 비율 고정 및 글자 깨짐 방지 */
-#profile {
-  height: auto !important;
-  min-height: auto !important;
-  max-height: none !important;
-  padding-top: 0px !important;
-  padding-bottom: 20px !important;
-  
-  /* 깔끔한 90% 축소 및 폰트 뭉개짐 방지 */
-  transform: scale(0.88) !important;
-  transform-origin: top center !important;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
