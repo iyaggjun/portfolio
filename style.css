@@ -886,7 +886,3 @@ input[name="project-tab"] { display: none; }
 .storyboard-btn:hover .arrow {
     transform: translateX(5px);
 }
-#portfolio {
-  padding-top: 0 !important;
-  justify-content: flex-start !important;
-}
