@@ -346,7 +346,7 @@ input[name="project-tab"] { display: none; }
 #profile .experience-container,
 #profile .info-grid,
 #profile .profile-right {
-    margin-top: -30px !important;
+    margin-top: -40px !important;
 }
 /* ======================================================== */
 /* 5. PROFILE OVERVIEW (카멜레온 컨셉 최적화 버전) */
