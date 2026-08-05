@@ -886,20 +886,3 @@ input[name="project-tab"] { display: none; }
 .storyboard-btn:hover .arrow {
     transform: translateX(5px);
 }
-/* 1. 상단 내비게이션 바 높이에 맞춰 스크롤 위치 정밀 보정 */
-section, 
-div[id] {
-  scroll-margin-top: 90px !important;
-}
-
-/* 2. 모든 섹션의 크기/폰트/비율을 원본 그대로 복원 */
-#portfolio,
-#profile,
-#contact {
-  height: auto !important;
-  min-height: auto !important;
-  max-height: none !important;
-  transform: none !important;
-  padding-top: 40px !important;
-  padding-bottom: 60px !important;
-}
