@@ -343,10 +343,10 @@ input[name="project-tab"] { display: none; }
 /* ======================================================== */
 /* 5. PROFILE OVERVIEW (카멜레온 컨셉 최적화 버전) */
 /* ======================================================== */
-#profile-overview {
+#profile {
     height: auto; 
-    padding: 140px 0; 
-    background-color: #090a0c; /* 카멜레온 오로라가 잘 보이도록 배경을 살짝 더 깊은 어둠으로 설정 */
+    padding: 180px 0 140px 0; /* 위쪽 여백을 180px로 늘려서 헤더에 가려지는 문제 해결 */
+    background-color: #090a0c;
     position: relative;
     overflow: hidden;
 }
