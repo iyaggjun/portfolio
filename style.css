@@ -342,7 +342,12 @@ input[name="project-tab"] { display: none; }
 }
 .desc-title { font-size: 22px; font-weight: 700; color: #38bdf8; margin-bottom: 18px; }
 .desc-text { font-size: 15px; line-height: 1.8; color: #cbd5e1; font-weight: 300; margin-bottom: 0px !important; }
-
+#profile .profile-details,
+#profile .experience-container,
+#profile .info-grid,
+#profile .profile-right {
+    margin-top: -30px !important;
+}
 /* ======================================================== */
 /* 5. PROFILE OVERVIEW (카멜레온 컨셉 최적화 버전) */
 /* ======================================================== */
