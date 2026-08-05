@@ -348,7 +348,7 @@ input[name="project-tab"] { display: none; }
 /* ======================================================== */
 #profile {
     height: auto; 
-    padding: 200px 0 140px 0; /* 상단 여백을 220px로 확대 */
+    padding: 240px 0 140px 0; /* 상단 여백을 220px로 확대 */
     background-color: #090a0c;
     position: relative;
     overflow: hidden;
