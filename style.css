@@ -889,3 +889,8 @@ input[name="project-tab"] { display: none; }
 section {
   scroll-margin-top: 100px;
 }
+#profile {
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+  min-height: auto !important;
+}
