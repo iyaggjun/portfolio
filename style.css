@@ -100,7 +100,7 @@ body {
     scroll-margin-top: 0;
 }
 #profile {
-    scroll-margin-top: 100px; /* PROFILE 메뉴 클릭 시 100px 더 내려와서 멈춤 */
+    scroll-margin-top: 70px; /* PROFILE 메뉴 클릭 시 100px 더 내려와서 멈춤 */
 }
 /* ======================================================== */
 /* 2. 레이아웃 (기본 공통 섹션 규격 설정) */
@@ -348,7 +348,7 @@ input[name="project-tab"] { display: none; }
 /* ======================================================== */
 #profile {
     height: auto; 
-    padding: 160px 0 140px 0; /* 프로필 상단 여백
+    padding: 40px 0 140px 0; /* 프로필 상단 여백
     background-color: #090a0c;
     position: relative;
     overflow: hidden;
