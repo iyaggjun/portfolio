@@ -886,3 +886,20 @@ input[name="project-tab"] { display: none; }
 .storyboard-btn:hover .arrow {
     transform: translateX(5px);
 }
+/* 1. 상단 메뉴(WORK, PROFILE 등) 클릭 시 화면 멈춤 위치 조절 */
+section,
+[id] {
+  scroll-margin-top: 80px !important; /* 이전 섹션이 안 보이게 상단 여백 확보 */
+}
+
+/* 2. 모든 섹션의 억지 축소/변형 제거 (원본 해상도 및 자간 복원) */
+#portfolio,
+#profile,
+#contact {
+  transform: none !important;
+  height: auto !important;
+  min-height: auto !important;
+  max-height: none !important;
+  padding-top: 30px !important;
+  padding-bottom: 80px !important;
+}
