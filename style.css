@@ -96,9 +96,8 @@ body {
         font-size: 11px;
     }
 }
-/* 바로가기 링크 이동 시 네비게이션 두께만큼 넉넉하게 띄우고 멈추게 함 */
-#intro, #portfolio, #profile-overview, #contact, section {
-    scroll-margin-top: 110px; /* 네비게이션 높이(64px) + 상단 여백(20px) + 디자인적 여유 공간 */
+#intro, #portfolio, #profile, #contact, section {
+    scroll-margin-top: 0;
 }
 /* ======================================================== */
 /* 2. 레이아웃 (기본 공통 섹션 규격 설정) */
