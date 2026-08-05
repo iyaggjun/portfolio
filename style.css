@@ -889,8 +889,18 @@ input[name="project-tab"] { display: none; }
 section {
   scroll-margin-top: 100px;
 }
+
 #profile {
-  padding-top: 20px !important;
-  padding-bottom: 20px !important;
+  height: auto !important;
   min-height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+  padding-top: 40px !important;
+  padding-bottom: 40px !important;
+}
+
+#profile .container,
+#profile .profile-wrapper {
+  transform: scale(0.9);
+  transform-origin: top center;
 }
