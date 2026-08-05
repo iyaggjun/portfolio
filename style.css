@@ -341,7 +341,7 @@ input[name="project-tab"] { display: none; }
     width: 100%;
 }
 .desc-title { font-size: 22px; font-weight: 700; color: #38bdf8; margin-bottom: 18px; }
-.desc-text { font-size: 15px; line-height: 1.8; color: #cbd5e1; font-weight: 300; }
+.desc-text { font-size: 15px; line-height: 1.8; color: #cbd5e1; font-weight: 300; margin-bottom: 0px !important; }
 
 /* ======================================================== */
 /* 5. PROFILE OVERVIEW (카멜레온 컨셉 최적화 버전) */
