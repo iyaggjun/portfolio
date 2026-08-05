@@ -99,6 +99,9 @@ body {
 #intro, #portfolio, #profile, #contact, section {
     scroll-margin-top: 0;
 }
+#profile {
+    scroll-margin-top: 100px; /* PROFILE 메뉴 클릭 시 100px 더 내려와서 멈춤 */
+}
 /* ======================================================== */
 /* 2. 레이아웃 (기본 공통 섹션 규격 설정) */
 /* ======================================================== */
@@ -345,7 +348,7 @@ input[name="project-tab"] { display: none; }
 /* ======================================================== */
 #profile {
     height: auto; 
-    padding: 180px 0 140px 0; /* 위쪽 여백을 180px로 늘려서 헤더에 가려지는 문제 해결 */
+    padding: 220px 0 140px 0; /* 상단 여백을 220px로 확대 */
     background-color: #090a0c;
     position: relative;
     overflow: hidden;
