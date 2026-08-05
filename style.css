@@ -888,40 +888,49 @@ input[name="project-tab"] { display: none; }
 }
 /* 1. 상단 메뉴 클릭 시 스크롤 위치 보정 */
 section {
-  scroll-margin-top: 70px;
+  scroll-margin-top: 60px;
 }
 
-/* 2. Profile 섹션 여백 축소 */
+/* 2. 섹션 위아래 여백 최소화 */
 #profile {
   height: auto !important;
   min-height: auto !important;
   max-height: none !important;
-  transform: none !important;
-  padding-top: 15px !important;
+  transform: none !important; /* 글자 깨짐 원인 제거 */
+  padding-top: 0px !important;
   padding-bottom: 20px !important;
 }
 
-/* 3. EXPERIENCE, EDUCATION, ATTITUDE 카드 상하 여백 컴팩트화 */
+/* 3. 좌측 증명사진 및 프로필 카드 높이 축소 (세로 길이의 주원인) */
+#profile img {
+  max-height: 230px !important; /* 사진 세로 크기 정돈 */
+  width: auto !important;
+  object-fit: contain !important;
+}
+
+/* 4. 카드 및 내부 컨테이너 위아래 여백 축소 */
 #profile [class*="card"],
 #profile [class*="box"],
-#profile [class*="container"] {
-  padding-top: 16px !important;
-  padding-bottom: 16px !important;
+#profile [class*="wrapper"] {
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+  margin-top: 0 !important;
   margin-bottom: 0 !important;
 }
 
-/* 4. 경력 및 학력 항목 간 여백/줄간격 최적화 (글자 깨짐 없음) */
+/* 5. EXPERIENCE / EDUCATION 항목 간격 촘촘하게 조절 */
+#profile p,
 #profile li,
-#profile div,
-#profile p {
-  line-height: 1.35 !important;
-  margin-bottom: 8px !important;
+#profile span,
+#profile div {
+  line-height: 1.25 !important;
+  margin-bottom: 4px !important;
 }
 
-/* 5. 제목(ABOUT ME, EDUCATION 등) 상하 여백 줄이기 */
+/* 6. 소제목 간격 축소 */
 #profile h2,
 #profile h3,
 #profile h4 {
   margin-top: 0 !important;
-  margin-bottom: 10px !important;
+  margin-bottom: 6px !important;
 }
