@@ -347,8 +347,9 @@ input[name="project-tab"] { display: none; }
 /* 5. PROFILE OVERVIEW (카멜레온 컨셉 최적화 버전) */
 /* ======================================================== */
 #profile {
-    height: auto; 
-    padding: 40px 0 140px 0; /* 프로필 상단 여백
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 20px 0 100px 0 !important; /* 상단 여백을 20px로 최소화 */
     background-color: #090a0c;
     position: relative;
     overflow: hidden;
