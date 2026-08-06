@@ -895,206 +895,198 @@ input[name="project-tab"] { display: none; }
     transform: translateX(5px);
 }
 /* ======================================================== */
-/* 10. 모바일 & 태블릿 반응형 레이아웃 (1024px 이하) - 최종 수정 */
+/* 모바일 & 태블릿 반응형 완벽 보완 (최상위 우선순위 적용) */
 /* ======================================================== */
-@media (max-width: 1024px) {
-    /* 1. 일반 섹션 고정 높이 해제 */
-    .full-section {
+@media screen and (max-width: 1024px) {
+
+    /* 1. 기본 섹션 높이 강제 고정 해제 (겹침 현상 원천 차단) */
+    html, body {
+        overflow-x: hidden;
+    }
+
+    .full-section,
+    #intro,
+    #portfolio,
+    #profile,
+    #contact {
         height: auto !important;
-        min-height: 100vh;
-        padding: 80px 0 60px 0;
+        min-height: auto !important;
+        max-height: none !important;
     }
 
-    /* 2. 상단 내비게이션 바 정렬 */
-    .header-container {
-        padding: 0 20px;
-    }
-    .header-nav {
-        gap: 12px;
-    }
-    .nav-link {
-        font-size: 11px;
-    }
-
-    /* 3. INTRO 섹션 텍스트 겹침 해결 */
+    /* 2. INTRO 섹션 모바일 맞춤 조정 */
     #intro {
-        height: 100vh !important;
-        padding: 0;
+        min-height: 100vh !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 100px 0 60px 0 !important;
     }
+
     .intro-flex {
-        padding-left: 20px;
-        padding-right: 20px;
-        align-items: flex-start;
-        /* 배경 영상의 타이포그래피와 겹치지 않도록 검은색 반투명 박스 적용 */
-        background: rgba(13, 14, 16, 0.65);
-        padding: 30px 24px;
-        border-radius: 16px;
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        margin: 0 20px;
-        width: calc(100% - 40px) !important;
+        width: calc(100% - 32px) !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        padding: 24px 20px !important;
+        background: rgba(13, 14, 16, 0.75) !important; /* 배경 영상 텍스트와 분리 */
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 20px !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
     }
+
     .intro-title {
-        font-size: 42px;
+        font-size: 38px !important;
+        line-height: 1.2 !important;
     }
+
     .intro-sub {
-        font-size: 12px;
-        letter-spacing: 0.1em;
-        margin-bottom: 12px;
+        font-size: 11px !important;
+        letter-spacing: 0.1em !important;
+        margin-bottom: 12px !important;
     }
+
     .scroll-arrow {
-        margin-top: 30px;
-        font-size: 12px;
+        margin-top: 24px !important;
+        font-size: 11px !important;
     }
 
-    /* 4. WORK (PORTFOLIO) 탭 & 카드 레이아웃 세로 정렬 */
-    #portfolio .container.portfolio-tab-system {
-        padding: 0 20px;
-    }
-    
-    .tab-menu {
-        flex-direction: column;
-        gap: 8px;
-        padding: 0;
-    }
-    
-    .tab-btn {
-        width: 100%;
-        text-align: left;
-        font-size: 14px;
-        padding: 12px 16px;
-    }
-
-    .tab-content-wrap {
-        height: auto;
-    }
-
-    .project-card {
-        position: relative;
-        flex-direction: column;
-        gap: 24px;
-        padding: 30px 20px;
-        height: auto;
-        border-radius: 16px;
-        border: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .thumbnail-wrapper {
-        flex: none;
-        width: 100%;
-        padding-bottom: 56.25%;
-    }
-
-    .project-desc {
-        flex: none;
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .desc-title {
-        font-size: 18px;
-    }
-
-    .desc-text {
-        font-size: 14px;
-    }
-
-    .storyboard-area {
-        margin-top: 20px;
-    }
-
-    .storyboard-btn {
-        max-width: 100%;
-    }
-
-    /* 5. PROFILE 섹션 겹침 현상 원인 제거 및 정렬 */
+    /* 3. PROFILE 섹션 겹침 및 여백 완벽 초기화 */
     #profile {
-        padding: 80px 0 60px 0 !important;
+        padding: 60px 0 !important;
     }
 
-    /* 💡 핵심: 기존 CSS에 적용된 마이너스 마진(-50px)을 모바일에서 완전히 초기화 */
     #profile .profile-details,
     #profile .experience-container,
     #profile .info-grid,
     #profile .profile-right {
         margin-top: 0 !important;
+        padding-top: 0 !important;
     }
 
     .profile-grid-layout {
-        grid-template-columns: 1fr;
-        gap: 35px;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 40px !important;
     }
 
     .profile-card {
-        max-width: 100%;
-        padding: 25px 20px;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 30px 20px !important;
     }
 
     .details-header {
-        margin-bottom: 30px;
+        margin-bottom: 30px !important;
     }
 
     .details-title {
-        font-size: 24px;
-        line-height: 1.4;
+        font-size: 22px !important;
+        line-height: 1.4 !important;
     }
 
     .about-bio {
-        font-size: 14px;
-        line-height: 1.7;
+        font-size: 14px !important;
+        line-height: 1.7 !important;
     }
 
     .history-grid {
-        grid-template-columns: 1fr;
-        gap: 25px;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 30px !important;
     }
 
     .history-col:nth-child(2) .history-list {
-        grid-template-columns: 1fr;
-        gap: 20px;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
     }
 
-    /* 6. CONTACT 섹션 */
-    #contact {
-        padding: 60px 20px 80px 20px;
+    /* 4. WORK (PORTFOLIO) 모바일 세로 배치 */
+    #portfolio {
+        padding: 60px 0 !important;
     }
 
-    .contact-box {
-        padding: 40px 20px;
+    #portfolio .container.portfolio-tab-system {
+        padding: 0 20px !important;
     }
 
-    .contact-title {
-        font-size: 32px;
+    .tab-menu {
+        flex-direction: column !important;
+        gap: 10px !important;
+        padding: 0 !important;
     }
 
-    .contact-details {
-        flex-direction: column;
-        gap: 28px;
+    .tab-btn {
+        width: 100% !important;
+        font-size: 13px !important;
+        padding: 12px 16px !important;
     }
 
-    /* 7. 모달 창 반응형 */
-    .modal-window-1280 {
-        width: 95%;
+    .tab-content-wrap {
+        height: auto !important;
     }
 
-    .modal-close-btn {
-        top: -40px;
-        right: 5px;
-        font-size: 30px;
+    .project-card {
+        position: relative !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+        padding: 24px 16px !important;
+        height: auto !important;
+        border-radius: 16px !important;
+        transform: none !important;
     }
-}
 
-/* 초소형 모바일 기기 (480px 이하) 추가 미세조정 */
-@media (max-width: 480px) {
-    .intro-title {
-        font-size: 36px;
+    .thumbnail-wrapper {
+        width: 100% !important;
+        padding-bottom: 56.25% !important;
     }
-    
-    .header-logo {
-        font-size: 16px;
+
+    .project-desc {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .desc-title {
+        font-size: 18px !important;
+    }
+
+    .desc-text {
+        font-size: 13.5px !important;
+    }
+
+    .storyboard-btn {
+        max-width: 100% !important;
+    }
+
+    /* 5. CONTACT 및 상단바 모바일 최적화 */
+    .header-container {
+        padding: 0 16px !important;
+    }
+
+    .header-nav {
+        gap: 10px !important;
     }
 
     .nav-link {
-        font-size: 10px;
+        font-size: 10px !important;
+    }
+
+    #contact {
+        padding: 40px 16px 80px 16px !important;
+    }
+
+    .contact-box {
+        padding: 30px 16px !important;
+    }
+
+    .contact-title {
+        font-size: 28px !important;
+    }
+
+    .contact-details {
+        flex-direction: column !important;
+        gap: 24px !important;
     }
 }
