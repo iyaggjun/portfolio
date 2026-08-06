@@ -894,3 +894,170 @@ input[name="project-tab"] { display: none; }
 .storyboard-btn:hover .arrow {
     transform: translateX(5px);
 }
+/* ======================================================== */
+/* 10. 모바일 & 태블릿 반응형 레이아웃 (1024px 이하) */
+/* ======================================================== */
+@media (max-width: 1024px) {
+    /* 1. 일반 섹션 고정 높이 해제 */
+    .full-section {
+        height: auto !important;
+        min-height: 100vh;
+        padding: 80px 0 60px 0;
+    }
+
+    /* 2. 상단 내비게이션 바 정렬 */
+    .header-container {
+        padding: 0 20px;
+    }
+    .header-nav {
+        gap: 14px;
+    }
+    .nav-link {
+        font-size: 11px;
+    }
+
+    /* 3. INTRO 섹션 모바일 대응 */
+    #intro {
+        height: 100vh !important;
+        padding: 0;
+    }
+    .intro-title {
+        font-size: 52px;
+    }
+    .intro-sub {
+        font-size: 13px;
+        letter-spacing: 0.15em;
+    }
+
+    /* 4. WORK (PORTFOLIO) 탭 & 카드 레이아웃 세로 정렬 */
+    #portfolio .container.portfolio-tab-system {
+        padding: 0 20px;
+    }
+    
+    .tab-menu {
+        flex-direction: column;
+        gap: 8px;
+        padding: 0;
+    }
+    
+    .tab-btn {
+        width: 100%;
+        text-align: left;
+        font-size: 14px;
+        padding: 12px 16px;
+    }
+
+    .tab-content-wrap {
+        height: auto; /* 높이 고정 해제 */
+    }
+
+    .project-card {
+        position: relative; /* Absolute 해제 */
+        flex-direction: column;
+        gap: 24px;
+        padding: 30px 20px;
+        height: auto;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .thumbnail-wrapper {
+        flex: none;
+        width: 100%;
+        padding-bottom: 56.25%; /* 16:9 비율 유지 */
+    }
+
+    .project-desc {
+        flex: none;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .desc-title {
+        font-size: 18px;
+    }
+
+    .desc-text {
+        font-size: 14px;
+    }
+
+    .storyboard-area {
+        margin-top: 20px;
+    }
+
+    .storyboard-btn {
+        max-width: 100%; /* 버튼 가로 전체 채우기 */
+    }
+
+    /* 5. PROFILE 섹션 세로 정렬 */
+    #profile {
+        padding: 60px 0 !important;
+    }
+
+    .profile-grid-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .profile-card {
+        max-width: 100%;
+    }
+
+    .details-title {
+        font-size: 26px;
+    }
+
+    .history-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .history-col:nth-child(2) .history-list {
+        grid-template-columns: 1fr; /* EXPERIENCE 2열 -> 1열로 변경 */
+        gap: 20px;
+    }
+
+    /* 6. CONTACT 섹션 */
+    #contact {
+        padding: 60px 20px 80px 20px;
+    }
+
+    .contact-box {
+        padding: 40px 20px;
+    }
+
+    .contact-title {
+        font-size: 32px;
+    }
+
+    .contact-details {
+        flex-direction: column;
+        gap: 28px;
+    }
+
+    /* 7. 모달 창 반응형 */
+    .modal-window-1280 {
+        width: 95%;
+    }
+
+    .modal-close-btn {
+        top: -40px;
+        right: 5px;
+        font-size: 30px;
+    }
+}
+
+/* 화면 폭이 더 작은 모바일 (480px 이하) 추가 미세조정 */
+@media (max-width: 480px) {
+    .intro-title {
+        font-size: 40px;
+    }
+    
+    .header-logo {
+        font-size: 16px;
+    }
+
+    .nav-link {
+        font-size: 10px;
+    }
+}
