@@ -895,7 +895,7 @@ input[name="project-tab"] { display: none; }
     transform: translateX(5px);
 }
 /* ======================================================== */
-/* 10. 모바일 & 태블릿 반응형 레이아웃 (1024px 이하) */
+/* 10. 모바일 & 태블릿 반응형 레이아웃 (1024px 이하) - 최종 수정 */
 /* ======================================================== */
 @media (max-width: 1024px) {
     /* 1. 일반 섹션 고정 높이 해제 */
@@ -910,23 +910,41 @@ input[name="project-tab"] { display: none; }
         padding: 0 20px;
     }
     .header-nav {
-        gap: 14px;
+        gap: 12px;
     }
     .nav-link {
         font-size: 11px;
     }
 
-    /* 3. INTRO 섹션 모바일 대응 */
+    /* 3. INTRO 섹션 텍스트 겹침 해결 */
     #intro {
         height: 100vh !important;
         padding: 0;
     }
+    .intro-flex {
+        padding-left: 20px;
+        padding-right: 20px;
+        align-items: flex-start;
+        /* 배경 영상의 타이포그래피와 겹치지 않도록 검은색 반투명 박스 적용 */
+        background: rgba(13, 14, 16, 0.65);
+        padding: 30px 24px;
+        border-radius: 16px;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        margin: 0 20px;
+        width: calc(100% - 40px) !important;
+    }
     .intro-title {
-        font-size: 52px;
+        font-size: 42px;
     }
     .intro-sub {
-        font-size: 13px;
-        letter-spacing: 0.15em;
+        font-size: 12px;
+        letter-spacing: 0.1em;
+        margin-bottom: 12px;
+    }
+    .scroll-arrow {
+        margin-top: 30px;
+        font-size: 12px;
     }
 
     /* 4. WORK (PORTFOLIO) 탭 & 카드 레이아웃 세로 정렬 */
@@ -948,11 +966,11 @@ input[name="project-tab"] { display: none; }
     }
 
     .tab-content-wrap {
-        height: auto; /* 높이 고정 해제 */
+        height: auto;
     }
 
     .project-card {
-        position: relative; /* Absolute 해제 */
+        position: relative;
         flex-direction: column;
         gap: 24px;
         padding: 30px 20px;
@@ -964,7 +982,7 @@ input[name="project-tab"] { display: none; }
     .thumbnail-wrapper {
         flex: none;
         width: 100%;
-        padding-bottom: 56.25%; /* 16:9 비율 유지 */
+        padding-bottom: 56.25%;
     }
 
     .project-desc {
@@ -986,34 +1004,53 @@ input[name="project-tab"] { display: none; }
     }
 
     .storyboard-btn {
-        max-width: 100%; /* 버튼 가로 전체 채우기 */
+        max-width: 100%;
     }
 
-    /* 5. PROFILE 섹션 세로 정렬 */
+    /* 5. PROFILE 섹션 겹침 현상 원인 제거 및 정렬 */
     #profile {
-        padding: 60px 0 !important;
+        padding: 80px 0 60px 0 !important;
+    }
+
+    /* 💡 핵심: 기존 CSS에 적용된 마이너스 마진(-50px)을 모바일에서 완전히 초기화 */
+    #profile .profile-details,
+    #profile .experience-container,
+    #profile .info-grid,
+    #profile .profile-right {
+        margin-top: 0 !important;
     }
 
     .profile-grid-layout {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 35px;
     }
 
     .profile-card {
         max-width: 100%;
+        padding: 25px 20px;
+    }
+
+    .details-header {
+        margin-bottom: 30px;
     }
 
     .details-title {
-        font-size: 26px;
+        font-size: 24px;
+        line-height: 1.4;
+    }
+
+    .about-bio {
+        font-size: 14px;
+        line-height: 1.7;
     }
 
     .history-grid {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 25px;
     }
 
     .history-col:nth-child(2) .history-list {
-        grid-template-columns: 1fr; /* EXPERIENCE 2열 -> 1열로 변경 */
+        grid-template-columns: 1fr;
         gap: 20px;
     }
 
@@ -1047,10 +1084,10 @@ input[name="project-tab"] { display: none; }
     }
 }
 
-/* 화면 폭이 더 작은 모바일 (480px 이하) 추가 미세조정 */
+/* 초소형 모바일 기기 (480px 이하) 추가 미세조정 */
 @media (max-width: 480px) {
     .intro-title {
-        font-size: 40px;
+        font-size: 36px;
     }
     
     .header-logo {
