@@ -895,11 +895,11 @@ input[name="project-tab"] { display: none; }
     transform: translateX(5px);
 }
 /* ======================================================== */
-/* 모바일 & 태블릿 반응형 완벽 보완 (최상위 우선순위 적용) */
+/* 모바일 & 태블릿 반응형 완벽 보완 (위치/겹침 최종 수정) */
 /* ======================================================== */
 @media screen and (max-width: 1024px) {
 
-    /* 1. 기본 섹션 높이 강제 고정 해제 (겹침 현상 원천 차단) */
+    /* 1. 기본 높이 및 오버플로우 초기화 */
     html, body {
         overflow-x: hidden;
     }
@@ -914,81 +914,94 @@ input[name="project-tab"] { display: none; }
         max-height: none !important;
     }
 
-    /* 2. INTRO 섹션 모바일 맞춤 조정 */
+    /* 2. INTRO 섹션: 텍스트 박스를 상단으로 올려 배경글씨와 분리 */
     #intro {
+        height: 100vh !important;
         min-height: 100vh !important;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 100px 0 60px 0 !important;
+        display: flex !important;
+        align-items: flex-start !important; /* 가운데 정렬 대신 상단 배치 */
+        justify-content: center !important;
+        padding-top: 100px !important; /* 상단 헤더와 여백 확보 */
     }
 
     .intro-flex {
         width: calc(100% - 32px) !important;
         max-width: 100% !important;
         margin: 0 auto !important;
-        padding: 24px 20px !important;
-        background: rgba(13, 14, 16, 0.75) !important; /* 배경 영상 텍스트와 분리 */
-        backdrop-filter: blur(10px) !important;
-        -webkit-backdrop-filter: blur(10px) !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
-        border-radius: 20px !important;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+        padding: 20px 18px !important;
+        background: rgba(13, 14, 16, 0.8) !important; /* 배경을 가려 가독성 확보 */
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.12) !important;
+        border-radius: 16px !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
     }
 
     .intro-title {
-        font-size: 38px !important;
+        font-size: 32px !important;
         line-height: 1.2 !important;
     }
 
     .intro-sub {
         font-size: 11px !important;
         letter-spacing: 0.1em !important;
-        margin-bottom: 12px !important;
+        margin-bottom: 8px !important;
     }
 
     .scroll-arrow {
-        margin-top: 24px !important;
+        margin-top: 16px !important;
         font-size: 11px !important;
     }
 
-    /* 3. PROFILE 섹션 겹침 및 여백 완벽 초기화 */
+    /* 3. PROFILE 섹션: 카드 및 ABOUT ME 간격 완벽 분리 */
     #profile {
-        padding: 60px 0 !important;
+        padding: 80px 0 60px 0 !important;
     }
 
+    /* 기존 데스크톱용 마이너스 마진 및 강제 위치 지정 무효화 */
     #profile .profile-details,
     #profile .experience-container,
     #profile .info-grid,
     #profile .profile-right {
         margin-top: 0 !important;
         padding-top: 0 !important;
+        position: relative !important;
+        top: 0 !important;
     }
 
     .profile-grid-layout {
         display: flex !important;
         flex-direction: column !important;
-        gap: 40px !important;
+        gap: 50px !important; /* 프로필 카드와 ABOUT ME 사이 간격 50px 확보 */
     }
 
     .profile-card {
         width: 100% !important;
         max-width: 100% !important;
         padding: 30px 20px !important;
+        margin-bottom: 0 !important;
     }
 
     .details-header {
-        margin-bottom: 30px !important;
+        margin-top: 10px !important;
+        margin-bottom: 25px !important;
+    }
+
+    .details-sub {
+        font-size: 13px !important;
+        display: block !important;
     }
 
     .details-title {
         font-size: 22px !important;
         line-height: 1.4 !important;
+        margin-top: 6px !important;
     }
 
     .about-bio {
         font-size: 14px !important;
         line-height: 1.7 !important;
+        margin-top: 12px !important;
     }
 
     .history-grid {
@@ -1060,7 +1073,7 @@ input[name="project-tab"] { display: none; }
         max-width: 100% !important;
     }
 
-    /* 5. CONTACT 및 상단바 모바일 최적화 */
+    /* 5. CONTACT 및 네비게이션 모바일 최적화 */
     .header-container {
         padding: 0 16px !important;
     }
